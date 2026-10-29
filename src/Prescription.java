@@ -2,6 +2,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+// JS: this is a nice prescription class.   
 public class Prescription {
     private String medicationName;
     private Date datePrescribed;
@@ -10,6 +11,7 @@ public class Prescription {
 
     public Prescription(String medicationName, Date datePrescribed,
                         String dosage, String prescriber) {
+// JS: This is a good use of an exception.  Good care taken with the trims.  
         if (medicationName == null ||
                 medicationName.trim().isEmpty() ||
                 datePrescribed == null ||
@@ -24,6 +26,7 @@ public class Prescription {
         this.prescriber = prescriber.trim();
     }
 
+    // JS: Good use of factory method here.  
     public static Prescription create(String csvLine) {
         String[] fields = CSVUtil.parseLine(csvLine);
 

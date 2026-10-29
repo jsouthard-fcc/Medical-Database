@@ -27,6 +27,7 @@ public class PrescriptionCsvReader {
             String line;
             int lineNumber = 0;
 
+            // JS: Some of the same comments on the patient reader apply here, too.  
             while ((line = reader.readLine()) != null) {
                 lineNumber++;
 

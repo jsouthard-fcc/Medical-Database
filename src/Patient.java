@@ -1,7 +1,13 @@
 import java.text.SimpleDateFormat;
 
+// JS: the name ComparableTree shows up to great disadvantage here. 
+// We see this line and we get the idea that a Patient is a tree.
 public class Patient implements ComparableTree<Patient> {
     private PatientIdentity identity;
+
+    // JS: I am not clear what the patientID is doing, but if you want a universal identifier
+    // to link database records, you do not want it to be a String. Too error prone. 
+    // This is what UUIDs were created for. 
     private String patientID;
     private PrescriptionList prescriptions;
 

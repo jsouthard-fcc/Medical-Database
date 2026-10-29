@@ -1,6 +1,8 @@
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+// Js: This class is done very nicely, modulo the bit of confusion about the class name Identity,
+// which I have noted elsewhere. 
 public class PatientIdentity {
     private Identity identity;
     private Date dateOfBirth;

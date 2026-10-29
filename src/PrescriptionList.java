@@ -13,6 +13,12 @@ public class PrescriptionList {
     }
 
     private ListRecord head;
+
+    // JS: Giuven how easy it is to count a linked list, I think I would just recompute
+    // the count when asked for, instead of relying on a count variable that we now have to maintain. 
+    // Count matters more for an array because the array structure itself does not tell us how
+    // many boxes have actual data.  This makes the count() noperation order-N, but we don't
+    // use it much for lists of prescriptions: other than in testing, we don't typically care.  
     private int count;
 
     public PrescriptionList() {
@@ -20,6 +26,7 @@ public class PrescriptionList {
         count = 0;
     }
 
+    // JS; Correct add routine. You handled the various cases well. 
     public boolean addPrescription(Prescription prescription) {
         if (prescription == null) {
             return false;
@@ -37,6 +44,7 @@ public class PrescriptionList {
 
         ListRecord current = head;
 
+        // JS: Correct, we have to worry about one behind.  
         while (current.next != null &&
                 !prescription.comesBefore(current.next.prescription)) {
             current = current.next;

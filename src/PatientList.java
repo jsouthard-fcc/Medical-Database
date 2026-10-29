@@ -122,10 +122,16 @@ public class PatientList {
             while ((line = reader.readLine()) != null) {
                 lineNumber++;
 
+                // Js: Please be wary of overusing continue.  It can make code very hard to figure out. 
+                // It would be cleaner to feed the line into an error-checking method which 
+                // could check these various errors in one place. Then your logica owuld be just
+                //  if (lineValid(line)) { <process the tokens> }
                 if (line.trim().isEmpty()) {
                     continue;
                 }
 
+                // JS: Not sure where you got the CSV Util, but it is overkill here. 
+                // It mostly worries about possible single and doiuble quotes in the data, which we don't have. 
                 String[] fields = CSVUtil.parseLine(line);
 
                 if (fields.length != 4) {
@@ -135,6 +141,7 @@ public class PatientList {
                     continue;
                 }
 
+                // JS: this looks like it is handling a line of field labels, which we don't have.
                 if (fields[0].equalsIgnoreCase("lastName") &&
                         fields[1].equalsIgnoreCase("firstName") &&
                         fields[2].equalsIgnoreCase("dateOfBirth")) {
@@ -160,6 +167,8 @@ public class PatientList {
 
                     Date birthDate = format.parse(birthDateText);
 
+                    // JS: Not sure what the purpose of this test is. 
+                    // We got the birthdate from the text.  ARe we testing the formatter?
                     if (!format.format(birthDate).equals(birthDateText)) {
                         System.out.println(
                                 "Invalid birth date at row: " +

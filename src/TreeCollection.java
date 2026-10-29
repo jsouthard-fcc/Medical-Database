@@ -1,3 +1,5 @@
+
+// JS: Sorry, this one makes no sense here.  
 public interface TreeCollection<T extends ComparableTree<T>> {
     boolean add(T item);
     T find(T item);

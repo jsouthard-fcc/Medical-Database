@@ -1,3 +1,7 @@
+// JS: this is what we were calling the "Name" class.
+// I am going to hold out for Name as a better class name, 
+// because it is confusing to have an Identity and a PatientIdentity
+// which are not a class hierarchy, but two different things.  
 public class Identity {
     private String firstName;
     private String lastName;
@@ -13,6 +17,9 @@ public class Identity {
         this.lastName = lastName.trim();
     }
 
+    // JS: I see what is being done here, but it is a misnomer.  
+    // The issue is not 'last name first' but whether the first or last name is the family name, 
+    // This is better handled through polymoprhism.  
     public Identity(String firstName, String lastName,
                     boolean lastNameFirst) {
         this(lastNameFirst ? lastName : firstName,
